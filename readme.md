@@ -2,33 +2,34 @@
 ## Overview
 
 Competitive programming platforms (Kattis, Codeforces, etc.) classify problems by difficulty.
+
 This project automates that process using Machine Learning while using only **textual description**.
 
 By analyzing the textual description of a problem, the system predicts:
 Difficulty Class: Categorizes problems into Easy, Medium, or Hard
-Difficulty Score: Assigns a precise numerical score (1.0 – 10.0)
+Difficulty Score: Assigns a precise numerical score (1 – 10)
 
 ## Approach & Feature Engineering
 
 Simple word counts were insufficient.
 The final model uses a Hybrid Feature Set to capture both technical language and mathematical constraints.
 
-### 1️⃣ NLP Features
+### 1️. NLP Features
 
-TF-IDF Vectorization: Analyzes unigrams and bigrams
-Logic-Aware Cleaning: Custom preprocessing preserves:
-Programming keywords (if, while, for)
-LaTeX-style mathematical symbols (\leq, \geq)
-(These are often removed by standard cleaners)
+1. TF-IDF Vectorization: Analyzes unigrams and bigrams
+2. Logic-Aware Cleaning: Custom preprocessing preserves:
+      1. Programming keywords (if, while, for)
+      2. LaTeX-style mathematical symbols (\leq, \geq)
+         (These are often removed by standard cleaners)
 
-### 2️⃣ Domain-Specific (Handcrafted) Features
-Power: Detects constraints like 10^5 or 10^9 to estimate time complexity
-Algorithm Density: Frequency of keywords like dp, graph, union-find, recursion
-Math Symbol Count: Density of operators (+ - * /) and comparison symbols (< > =)
-Constraint Complexity: Pattern detection such as N ≤ 10^5
+### 2. Handcrafted Features
+1. Power: Detects constraints like 10^5 or 10^9 to estimate time complexity
+2. Algorithm Density: Frequency of keywords like **dp, graph, union-find, recursion**
+3. Math Symbol Count: Density of operators (+ - * /) and comparison symbols (< > =)
+4. Constraint Complexity: Pattern detection such as N ≤ 10^5
 
 ## Model Selection 
-### 1️⃣ Classification (Easy / Medium / Hard)
+### 1. Classification (Easy / Medium / Hard)
 
 We compared four models to determine which best handled the nuances of "Medium" difficulty problems.
 
@@ -52,7 +53,7 @@ Confusion Matrices
 
 
 
-### 2️⃣ Regression (Numerical Score)
+### 2️. Regression (Numerical Score)
 
 Evaluated using:
 MAE (Mean Absolute Error) → lower is better
@@ -66,7 +67,7 @@ R² Score → higher is better
 
 
 ##  How to Run (VS Code Setup)
-### 1️⃣ Environment Setup
+### 1️. Environment Setup
 
 Ensure Python 3.8+ is installed. In your terminal:
 
@@ -87,7 +88,7 @@ pip install -r requirements.txt
 python -m nltk.downloader stopwords wordnet omw-1.4
 ```
 
-### 2️⃣ Training the Model
+### 2️. Training the Model
 
 Process the raw data and generate the saved model files:
 
@@ -97,7 +98,7 @@ python src/train.py
 
 This creates the /models folder containing your .joblib files.
 
-### 3️⃣ Launching the App
+### 3️. Launching the App
 
 Start the Streamlit web interface:
 
@@ -105,6 +106,5 @@ Start the Streamlit web interface:
 streamlit run app.py
 ```
 
-Your browser will open at:
-👉 http://localhost:8501
+
 

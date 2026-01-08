@@ -48,7 +48,7 @@ if submit:
         # B. Feature Extraction
         # Text features
         X_tfidf = tfidf.transform([cleaned])
-        # Handcrafted features (must be a 2D array/matrix)
+        # Handcrafted features
         numeric_features = extract_handcrafted_features(full_text).values.reshape(1, -1)
         
         # C. Combine
@@ -69,7 +69,7 @@ if submit:
         c1.metric("Predicted Level", label)
         c2.metric("Difficulty Score", f"{score:.2f}/10")
         
-        # UI Polish based on difficulty
+
         if label == "Easy":
             st.success("This problem looks beginner-friendly!")
         elif label == "Medium":
