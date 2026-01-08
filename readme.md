@@ -87,6 +87,13 @@ R² Score → higher is better
 
 
 ##  How to Run (VS Code Setup)
+
+### 0. Clone this repo into VS Code and change into this Repo
+```bash
+git clone https://github.com/the-sisyphean/AutoJudge.git
+cd AutoJudge
+```
+
 ### 1️. Environment Setup
 
 Ensure Python 3.8+ is installed. In your terminal:
