@@ -42,10 +42,6 @@ The final model uses a Hybrid Feature Set to capture both technical language and
 ### 1️. NLP Features
 
 1. TF-IDF Vectorization: Analyzes unigrams and bigrams
-2. Logic-Aware Cleaning: Custom preprocessing preserves:
-      1. Programming keywords (if, while, for)
-      2. LaTeX-style mathematical symbols (\leq, \geq)
-         (These are often removed by standard cleaners)
 
 ### 2. Handcrafted Features
 1. Power: Detects constraints like 10^5 or 10^9 to estimate time complexity
