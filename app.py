@@ -6,7 +6,7 @@ from scipy.sparse import hstack, csr_matrix
 from src.preprocessing import clean_text, extract_handcrafted_features
 
 # 1. Page Configuration
-st.set_page_config(page_title="Auto Judge", page_icon="")
+st.set_page_config(page_title="Auto Judge", page_icon="⚡", layout="centered")
 
 # 2. Load Models and Vectorizer
 @st.cache_resource
@@ -27,10 +27,8 @@ st.title("AutoJudge: CP Problem Difficulty Predictor")
 st.markdown("Paste the problem details below to predict its difficulty level and numeric score.")
 
 with st.form("problem_form"):
-    col1, col2 = st.columns(2)
-    with col1:
-        title = st.text_input("Problem Title", placeholder="e.g., Two Sum")
-    with col2:
+    col = st.columns(1)
+    with col[0]:
         description = st.text_area("Problem Description", placeholder="Given an array of integers...")
 
     input_desc = st.text_area("Input Description", placeholder="The first line contains N...")
@@ -44,7 +42,7 @@ if submit:
         st.warning("Please provide a description.")
     else:
         # A. Preprocess
-        full_text = f"{title} {description} {input_desc} {output_desc}"
+        full_text = f"⚡{description} {input_desc} {output_desc}"
         cleaned = clean_text(full_text)
         
         # B. Feature Extraction
