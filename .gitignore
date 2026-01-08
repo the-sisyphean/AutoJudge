@@ -1,0 +1,43 @@
+# 1. Python Environment
+venv/
+env/
+.env
+bin/
+lib/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 2. Virtual Machine / IDE
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# 3. Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# 4. Data (CRITICAL for ML)
+# We ignore the raw data and cleaned CSVs to keep the repo light
+data/*.jsonl
+data/*.csv
+data/*.zip
+
+# 5. Models
+# Trained models are binary files; we usually don't track them in Git
+models/*.joblib
+models/*.pkl
+models/*.h5
+
+# 6. Notebooks
+.ipynb_checkpoints/
