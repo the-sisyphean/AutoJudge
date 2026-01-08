@@ -63,15 +63,15 @@ We compared four models to determine which best handled the nuances of "Medium" 
 | Logistic Regression | 46%      | 0.56              | Most balanced; best at catching Hard problems         |
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
 
+<p float="left">
+  <img src="data/clfs.png" width="300" />
+  <img src="data/clf.png" width="300" />
+</p>
 
 Confusion Matrices
-| **Random Forest** | **Logistic Regression** | **Naive Bayes** | **SVM(Linear)** |
-| ----------------- | ----------------------- | --------------- | --------------- |
-| **E  M  H**       | **E  M  H**             | **E  M  H**     | **E  M  H**     |
-| E: 46  102   5    | E: 65   73   15         | E: 12  141   0  | E:60 80 13      |
-| M: 25  327  37    | M: 91  215   83         | M:  7  380   2  | M:20 214 155    |
-| H: 22  217  42    | H: 20  160  101         | H: 12  263   6  | H:102 81 98     |
-
+<p float="left">
+  <img src="data/classifier_comparison.png" width="300" />
+</p>
 
 
 
@@ -87,6 +87,29 @@ R² Score → higher is better
 | Gradient Boosting       | 1.71           | 0.40          |
 | Linear Regression       | 1.97           | 0.28          |
 
+
+## Repo Structure 
+```bash
+AutoJudge/
+|── .devcontainer/
+|      └── devcontainer.json                      
+├── data/
+│   ├── problems_data.jsonl          # Raw dataset (input for training)
+│   └── cleaned_problems_data.jsonl  # Preprocessed data used for final modeling
+├── models/
+│   ├── classifier.joblib            # Trained Random Forest Classification model
+│   ├── regressor.joblib             # Trained Random Forest Regression model
+│   ├── tfidf_vectorizer.joblib      # Saved TF-IDF fitted on the training vocabulary
+│   └── confusion_matrix.png         # Visual evaluation metric for the report
+├── src/
+│   ├── preprocessing.py             # Core logic for text cleaning & handcrafted features
+│   └── train.py                     # Execution script to train models and save assets
+|── .gitignore                       # Makes sure unnnecessary files are not pushed by git
+├── app.py                           # Streamlit Web UI code for local/cloud deployment
+├── requirements.txt                 # List of Python libraries (scikit-learn, streamlit, etc.)
+├── README.md                        # Project overview, setup guide, and demo link
+└── report.pdf                       # Formal 4–8 page technical project report
+```
 
 ##  How to Run (VS Code Setup)
 
