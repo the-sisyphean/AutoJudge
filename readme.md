@@ -61,7 +61,7 @@ We compared four models to determine which best handled the nuances of "Medium" 
 
 | Model               | Accuracy | F1-Score (Medium) | Observation                                           |
 | ------------------- | -------- | ----------------- | ----------------------------------------------------- |
-| Random Forest       | 54%      | 0.65              | Best overall accuracy; very strong on Medium problems |
+| Random Forest       | 52%      | 0.65              | Best overall accuracy; very strong on Medium problems |
 | Naive Bayes         | 48%      | 0.65              | High recall for Medium, but ignores Hard problems     |
 | Logistic Regression | 46%      | 0.56              | Most balanced; best at catching Hard problems         |
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
