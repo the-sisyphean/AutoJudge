@@ -67,13 +67,13 @@ We compared four models to determine which best handled the nuances of "Medium" 
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
 
 <p float="left">
-  <img src="data/img/clfs.png" width="300" />
-  <img src="data/img/clf.png" width="300" />
+  <img src="data/img/clfs01.png" width="400" />
+  <img src="data/img/clf.png" width="400" />
 </p>
 
 Confusion Matrices
 <p float="left">
-  <img src="data/img/classifier_comparison.png" width="300" >
+  <img src="data/img/classifier_comparison.png" width="400" >
 </p>
 
 
