@@ -6,6 +6,7 @@ Competitive programming platforms (Kattis, Codeforces, etc.) classify problems b
 This project automates that process using Machine Learning while using only **textual description**.
 
 By analyzing the textual description of a problem, the system predicts:
+
 **Difficulty Class**: Categorizes problems into Easy, Medium, or Hard
 **Difficulty Score**: Assigns a precise numerical score (1 – 10)
 
@@ -56,7 +57,7 @@ We compared four models to determine which best handled the nuances of "Medium" 
 
 | Model               | Accuracy | F1-Score (Medium) | Observation                                           |
 | ------------------- | -------- | ----------------- | ----------------------------------------------------- |
-| Random Forest       | 51%      | 0.65              | Best overall accuracy; very strong on Medium problems |
+| Random Forest       | 54%      | 0.65              | Best overall accuracy; very strong on Medium problems |
 | Naive Bayes         | 48%      | 0.65              | High recall for Medium, but ignores Hard problems     |
 | Logistic Regression | 46%      | 0.56              | Most balanced; best at catching Hard problems         |
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
@@ -81,7 +82,7 @@ R² Score → higher is better
 
 | Model                   | MAE (↓ Better) | R² (↑ Better) |
 | ----------------------- | -------------- | ------------- |
-| Random Forest Regressor | 1.70           | 0.42          |
+| Random Forest Regressor | 1.63           | 0.42          |
 | Gradient Boosting       | 1.71           | 0.40          |
 | Linear Regression       | 1.97           | 0.28          |
 
