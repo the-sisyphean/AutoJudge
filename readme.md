@@ -11,14 +11,14 @@ By analyzing the textual description of a problem, the system predicts:
 
 ## DataSet Used
 The dataset was given dataset by ACM which contained:
-[]Title
-[]Description
-[]input_description
-[]output_description
-[]sample_io
-[]problem_class
-[]problem_score
-[]url
+1. Title
+2. Description
+3. input_description
+4. output_description
+5. sample_io
+6. problem_class
+7. problem_score
+8. url
 
 
 ## Data Preprocessing 
