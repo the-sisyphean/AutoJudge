@@ -69,10 +69,3 @@ if submit:
         c1.metric("Predicted Level", label)
         c2.metric("Difficulty Score", f"{score:.2f}/10")
         
-
-        if label == "Easy":
-            st.success("This problem looks beginner-friendly!")
-        elif label == "Medium":
-            st.info("This problem might require specific algorithms or data structures.")
-        else:
-            st.warning("Brace yourself! This looks like a complex challenge.")

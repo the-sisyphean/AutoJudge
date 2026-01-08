@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import nltk
 
-# Ensure NLTK data is available
+# Ensure NLTK resources are available
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
@@ -18,7 +18,6 @@ lemmatizer = WordNetLemmatizer()
 stop_words = set(stopwords.words('english')) - {'if', 'while', 'for', 'each'}
 
 def clean_text(text):
-    """Refined cleaning logic from your final notebook."""
     if not isinstance(text, str): return ""
     
     text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("utf-8").lower()

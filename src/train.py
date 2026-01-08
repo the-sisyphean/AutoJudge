@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, mean_absolute_error, r2_score
 from scipy.sparse import hstack, csr_matrix
 import os
 
-# Import your custom functions
+
 from preprocessing import clean_text, extract_handcrafted_features
 
 def main():
@@ -19,13 +19,12 @@ def main():
         
     df = pd.read_json("data/problems_data.jsonl", lines=True)
 
-    # 2. Map and Filter (Lowercase to match your raw data)
+    # 2. Map and Filter
     class_mapping = {'easy': 0, 'medium': 1, 'hard': 2}
     df['problem_class_encoded'] = df['problem_class'].map(class_mapping)
 
     # Combine text fields for cleaning
-    df['combined_text'] = df['title'].fillna('') + " " + \
-                          df['description'].fillna('') + " " + \
+    df['combined_text'] = df['description'].fillna('') + " " + \
                           df['input_description'].fillna('') + " " + \
                           df['output_description'].fillna('')
 
@@ -40,7 +39,16 @@ def main():
     print("Step 3: Cleaning text...")
     df['cleaned_text'] = df['combined_text'].apply(clean_text)
     
- # 4. Feature Extraction
+    # Select the required columns
+    cleaned_df = df[['cleaned_text', 'problem_class_encoded', 'problem_score']]
+
+    # Save to JSONL format
+    # orient='records' and lines=True makes it JSONL
+    save_path = "data/cleaned_problems_data.jsonl"
+    cleaned_df.to_json(save_path, orient='records', lines=True)
+
+    
+    # 4. Feature Extraction
     print("Step 4: Vectorizing and extracting features...")
     tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
     X_tfidf = tfidf.fit_transform(df['cleaned_text'])
