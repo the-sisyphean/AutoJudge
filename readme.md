@@ -1,4 +1,7 @@
 # AUTOJUDGE: Programming Problem Difficulty Predictor
+## Project Essentials
+1. Report - https://docs.google.com/document/d/1Li1UAv5Pler4L2zGiwvwN2jwDIr8_lWS/edit?usp=sharing&ouid=105886260071102530981&rtpof=true&sd=true
+2. Demo - https://drive.google.com/drive/folders/1l1BzxqoF6LIPfD_R-FIvhFFHq9AtAxdu?usp=drive_link
 ## Overview
 
 Competitive programming platforms (Kattis, Codeforces, etc.) classify problems by difficulty.
@@ -9,7 +12,7 @@ By analyzing the textual description of a problem, the system predicts:
 
 **Difficulty Class**: Categorizes problems into Easy, Medium, or Hard
 
-**Difficulty Score**: Assigns a precise numerical score (1 – 10)
+**Difficulty Score**: Assigns a numerical score (1 – 10)
 
 ## DataSet Used
 The dataset was given dataset by ACM which contained:
@@ -64,13 +67,13 @@ We compared four models to determine which best handled the nuances of "Medium" 
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
 
 <p float="left">
-  <img src="data/clfs.png" width="300" />
-  <img src="data/clf.png" width="300" />
+  <img src="data/img/clfs.png" width="300" />
+  <img src="data/img/clf.png" width="300" />
 </p>
 
 Confusion Matrices
 <p float="left">
-  <img src="data/classifier_comparison.png" width="300" />
+  <img src="data/img/classifier_comparison.png" width="300" >
 </p>
 
 
@@ -80,12 +83,10 @@ Confusion Matrices
 Evaluated using:
 MAE (Mean Absolute Error) → lower is better
 R² Score → higher is better
+<p float="left">
+  <img src="data/img/regressor_comparison.png" width="300" >
+</p>
 
-| Model                   | MAE (↓ Better) | R² (↑ Better) |
-| ----------------------- | -------------- | ------------- |
-| Random Forest Regressor | 1.63           | 0.42          |
-| Gradient Boosting       | 1.71           | 0.40          |
-| Linear Regression       | 1.97           | 0.28          |
 
 
 ## Repo Structure 
