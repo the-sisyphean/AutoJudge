@@ -1,4 +1,4 @@
-# Programming Problem Difficulty Predictor
+# AUTOJUDGE: Programming Problem Difficulty Predictor
 ## Overview
 
 Competitive programming platforms (Kattis, Codeforces, etc.) classify problems by difficulty.
@@ -6,10 +6,30 @@ Competitive programming platforms (Kattis, Codeforces, etc.) classify problems b
 This project automates that process using Machine Learning while using only **textual description**.
 
 By analyzing the textual description of a problem, the system predicts:
-Difficulty Class: Categorizes problems into Easy, Medium, or Hard
-Difficulty Score: Assigns a precise numerical score (1 – 10)
+**Difficulty Class**: Categorizes problems into Easy, Medium, or Hard
+**Difficulty Score**: Assigns a precise numerical score (1 – 10)
 
-## Approach & Feature Engineering
+## DataSet Used
+The dataset was given dataset by ACM which contained:
+[]Title
+[]Description
+[]input_description
+[]output_description
+[]sample_io
+[]problem_class
+[]problem_score
+[]url
+
+
+## Data Preprocessing 
+1. The title,sample_io,url did not seem to contribute to guess the difficulty level so they were removed.
+2. No null entries, but handled the empty strings by replacing.
+3. Kept the numbers and math symbols for sure as they tell how tough a problem could be.
+4. Converted the special characters like ö to normal characters.
+5. Lowercased everything.
+6. Removed stop words while preseving few.
+
+## Feature Engineering
 
 Simple word counts were insufficient.
 The final model uses a Hybrid Feature Set to capture both technical language and mathematical constraints.
