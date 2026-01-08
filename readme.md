@@ -42,10 +42,6 @@ The final model uses a Hybrid Feature Set to capture both technical language and
 ### 1️. NLP Features
 
 1. TF-IDF Vectorization: Analyzes unigrams and bigrams
-2. Logic-Aware Cleaning: Custom preprocessing preserves:
-      1. Programming keywords (if, while, for)
-      2. LaTeX-style mathematical symbols (\leq, \geq)
-         (These are often removed by standard cleaners)
 
 ### 2. Handcrafted Features
 1. Power: Detects constraints like 10^5 or 10^9 to estimate time complexity
@@ -61,7 +57,7 @@ We compared four models to determine which best handled the nuances of "Medium" 
 
 | Model               | Accuracy | F1-Score (Medium) | Observation                                           |
 | ------------------- | -------- | ----------------- | ----------------------------------------------------- |
-| Random Forest       | 54%      | 0.65              | Best overall accuracy; very strong on Medium problems |
+| Random Forest       | 52%      | 0.65              | Best overall accuracy; very strong on Medium problems |
 | Naive Bayes         | 48%      | 0.65              | High recall for Medium, but ignores Hard problems     |
 | Logistic Regression | 46%      | 0.56              | Most balanced; best at catching Hard problems         |
 | SVM (Linear)        | 45%      | 0.56              | High precision but computationally slower             |
